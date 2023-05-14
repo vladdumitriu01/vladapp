@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Description</th>
+    <th scope="col">Destination</th>
+    <th scope="col">Amount</th>
+    <th scope="col">Balance</th>
+    <th scope="col">Date/Time</th>
+    <th scope="col">Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @transactions.each do |transaction| %>
+    <tr>
+      <th scope="row"><%=transaction.id %></th>
+      <td><%=transaction.description %></td>
+      <td><%=User.find(transaction.destination.to_i).name %></td>
+      <td><%=transaction.amount %></td>
+      <td><%=transaction.balance_after %></td>
+      <td><%=transaction.timestamp %></td>
+      <td><%=transaction.status_of_payment %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

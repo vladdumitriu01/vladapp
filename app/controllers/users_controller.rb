@@ -26,7 +26,10 @@ class UsersController < ApplicationController
     render 'payment_info'
   end
 
-
+  def transactions
+    @user = current_user
+    @transactions = @user.transactions
+  end
 
   private
 

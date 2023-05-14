@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_14_121738) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_14_125213) do
   create_table "transactions", force: :cascade do |t|
     t.float "amount"
     t.string "description"
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_14_121738) do
     t.string "status_of_payment"
     t.datetime "timestamp"
     t.string "destination"
+    t.integer "balance_after"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 

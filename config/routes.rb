@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get '/about', to: 'users#about'
   get '/payment_info', to: 'users#payment_info'
   post '/make_payment', to: 'transactions#make_payment'
+  get '/transactions', to: 'users#transactions'
 end

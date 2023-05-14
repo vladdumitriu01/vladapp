@@ -19,8 +19,9 @@ class Transaction < ApplicationRecord
     user_target = User.find(self.destination)
     user.update_attribute(:bambeuro, user.bambeuro - amount)
     user_target.update_attribute(:bambeuro, user_target.bambeuro + amount)
-
+    self.balance_after = user.bambeuro
     self.status_of_payment = 'success'
+    self.timestamp = DateTime.now
     self.save
   rescue
     self.status = 'failed'
