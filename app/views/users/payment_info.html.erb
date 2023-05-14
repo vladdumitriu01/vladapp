@@ -1,0 +1,27 @@
+<h1>Make a payment</h1>
+
+<%= form_with(url: make_payment_path) do |f| %>
+  <div class="field">
+    <%= f.label :account_name %>
+    <%= f.text_field :account_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :account_email %>
+    <%= f.email_field :account_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.number_field :amount, step: :any %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Transfer' %>
+  </div>
+<% end %>
