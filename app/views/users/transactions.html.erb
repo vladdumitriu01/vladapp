@@ -15,7 +15,7 @@
     <tr>
       <th scope="row"><%=transaction.id %></th>
       <td><%=transaction.description %></td>
-      <td><%=User.find(transaction.destination.to_i).name %></td>
+      <td><%=User.find(transaction.destination.to_i).name if User.exists? id: transaction.destination.to_i %></td>
       <td><%=transaction.amount %></td>
       <td><%=transaction.balance_after %></td>
       <td><%=transaction.timestamp %></td>

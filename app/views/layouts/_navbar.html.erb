@@ -1,9 +1,39 @@
-<nav>
-  <ul>
-    <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'About', about_path %></li>
-    <li><%= link_to 'Make Payment', payment_info_path %></li>
-    <li><%= link_to 'Transactions', transactions_path %></li>
-    <!-- Add more navigation links as needed -->
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">BambBank</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <% if logged_in? %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= about_path %>">Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= payment_info_path %>">Make Payment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= transactions_path %>">Transactions</a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <ul class="navbar-nav">
+    <% if logged_in? %>
+      <li class="nav-item">
+        <%= link_to 'Logout', logout_custom_path, class: 'nav-link' %>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to 'Sign In', login_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Sign Up', signup_path, class: 'nav-link' %>
+      </li>
+    <% end %>
   </ul>
 </nav>
